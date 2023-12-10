@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'information',
     "corsheaders",
+    'services',
 ]
 
 MIDDLEWARE = [
@@ -82,17 +83,15 @@ WSGI_APPLICATION = 'rafeuddaraj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+
+# DATABASES['default'] = dj_database_url.parse('postgres://portfolio_31pp_user:Ecy65yqkD0t73wpDrFXGGVj2oHRp01Oa@dpg-clq8pk9jvg7s73e4hgdg-a/portfolio_31pp')
 
 
 # Password validation
