@@ -1,4 +1,4 @@
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView,RetrieveAPIView
 from .serializers import (
     ServicesSerializer,
     BlogSerializer,
@@ -8,7 +8,8 @@ from .serializers import (
     CommentSerializer,
     PackageSerializer,
     PortfolioSerializer,
-    ResumeSerializer
+    ResumeSerializer,
+    EducationSerializer,SkillsSerializer
 )
 from .models import (
     Services,
@@ -19,7 +20,9 @@ from .models import (
     Comment,
     Package,
     Portfolio,
-    Resume
+    Resume,
+    Education,
+    Skills
 )
 
 # Create your views here.
@@ -43,6 +46,10 @@ class ClientView(ListAPIView):
 class ClientsReviewView(ListAPIView):
     queryset = ClientsReview.objects.all()
     serializer_class = ClientsReviewSerializer
+class ClientsReviewDetailView(RetrieveAPIView):
+    queryset = ClientsReview.objects.all()
+    serializer_class = ClientsReviewSerializer
+    lookup_field  = 'pk'
 
 class CommentView(ListAPIView):
     queryset = Comment.objects.all()
@@ -59,3 +66,9 @@ class PortfolioView(ListAPIView):
 class ResumeView(ListAPIView):
     queryset = Resume.objects.all()
     serializer_class = ResumeSerializer
+class EducationView(ListAPIView):
+    queryset = Education.objects.all()
+    serializer_class = EducationSerializer
+class SkillsView(ListAPIView):
+    queryset = Skills.objects.all()
+    serializer_class = SkillsSerializer

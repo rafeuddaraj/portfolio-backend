@@ -56,6 +56,7 @@ class Client(models.Model):
     position = models.CharField(max_length=20)
     logo = models.URLField()
     link = models.URLField()
+    image = models.URLField(null=True)
     
     class Meta:
         verbose_name_plural = "Clients"
@@ -82,7 +83,7 @@ class ClientsReview(models.Model):
         verbose_name_plural = "ClientReviews"
     
     def __str__(self) -> str:
-        return self.clients
+        return self.clients.name
 
 
 class Blog(models.Model):
@@ -91,6 +92,7 @@ class Blog(models.Model):
     description = models.TextField()
     like = models.PositiveIntegerField()
     like = models.PositiveIntegerField()
+    thumbnail = models.URLField(null=True)
     slug = models.SlugField(editable=False,unique=True)
     category = models.ForeignKey(Category,on_delete=models.CASCADE,null=True)
     
@@ -114,4 +116,18 @@ class Comment(models.Model):
         verbose_name_plural = 'Comments'
     def __str__(self) -> str:
         return self.comment
+
+class Skills (models.Model):
+    name = models.CharField(max_length=20)
+    def __str__(self):
+        return self.name
+
+class Education (models.Model):
+    degree_name = models.CharField(max_length=50)
+    institute_name = models.CharField(max_length=50)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    bio = models.TextField()
+    def __str__(self):
+        return self.degree_name
     

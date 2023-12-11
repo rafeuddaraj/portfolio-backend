@@ -1,7 +1,7 @@
 # serializers.py
 
 from rest_framework import serializers
-from .models import Services, Comment, Blog, Category, Client, ClientsReview, Package, Portfolio, Resume
+from .models import Services, Comment, Blog, Category, Client, ClientsReview, Package, Portfolio, Resume,Education,Skills
 
 class ServicesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -29,9 +29,11 @@ class ClientSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ClientsReviewSerializer(serializers.ModelSerializer):
+    clients = ClientSerializer()
     class Meta:
         model = ClientsReview
         fields = '__all__'
+
 
 class PackageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -46,4 +48,12 @@ class PortfolioSerializer(serializers.ModelSerializer):
 class ResumeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Resume
+        fields = '__all__'
+class SkillsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Skills
+        fields = '__all__'
+class EducationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Education
         fields = '__all__'

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Services,Blog,Category,Client,ClientsReview,Comment,Package,Portfolio,Resume
+from .models import Services,Skills,Blog,Category,Client,ClientsReview,Comment,Package,Portfolio,Resume,Education
 # Register your models here.
 
 class ServicesAdmin(admin.ModelAdmin):
@@ -20,6 +20,10 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('user',)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
+class SkillsAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+class EducationAdmin(admin.ModelAdmin):
+    list_display = ('degree_name',)
 
 admin.site.register(Blog,BlogAdmin)
 admin.site.register(Portfolio,PortfolioAdmin)
@@ -30,3 +34,5 @@ admin.site.register(ClientsReview,ClientReviewAdmin)
 admin.site.register(Category,CategoryAdmin)
 admin.site.register(Comment,CommentAdmin)
 admin.site.register(Services,ServicesAdmin)
+admin.site.register(Education,EducationAdmin)
+admin.site.register(Skills,SkillsAdmin)

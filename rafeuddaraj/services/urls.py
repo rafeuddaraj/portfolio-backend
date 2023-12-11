@@ -8,7 +8,10 @@ from .views import (
     PackageView,
     CategoryView,
     PortfolioView,
-    ClientsReviewView
+    ClientsReviewView,
+    ClientsReviewDetailView,
+    SkillsView,
+    EducationView
 )
 
 urlpatterns = [
@@ -21,4 +24,7 @@ urlpatterns = [
     path("categories/", CategoryView.as_view(), name="categories-list"),
     path("portfolio/", PortfolioView.as_view(), name="portfolio-list"),
     path("clients_review/", ClientsReviewView.as_view(), name="clients-review-list"),
+    path("clients_review/<int:pk>/", ClientsReviewDetailView.as_view(), name="clients-review-detail-list"),
+    path("skills/", SkillsView.as_view(), name="skills"),
+    path("educations/", EducationView.as_view(), name="educations"),
 ]
