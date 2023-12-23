@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'information',
     "corsheaders",
     'services',
+    'routine'
 ]
 
 MIDDLEWARE = [
